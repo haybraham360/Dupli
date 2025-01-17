@@ -12,13 +12,17 @@ import lockLogo from '../../assets/lock.png'
 import hideEye from '../../assets/eye-slash.png'
 import googleLogo from '../../assets/image 37-google.png'
 import Link from 'next/link'
-// import dynamic from 'next/dynamic';
-import { JSX, useState } from 'react'
-
+import { JSX, useState, FormEvent } from 'react'
+import { useRouter } from 'next/navigation'
 
 export default function SRFLogin(): JSX.Element {
-
     const [ hidePassword, setHidePassword ] = useState<boolean>(false)
+    const router = useRouter()
+
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        router.push('/sales-rep-flow/i')
+    }
 
     return (
         <div className="w-full h-screen p-[14px]">
@@ -86,7 +90,7 @@ export default function SRFLogin(): JSX.Element {
                         </div>
                     </div>
                     <div className="w-[52%] h-full flex items-center justify-center">
-                        <form action="" className='flex flex-col gap-4 w-[70%]'>
+                        <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-[70%]'>
                             <div className='flex flex-col gap-[0.15rem]'>
                                 <h2 className='font-bold'>Sign in</h2>
                                 <h3 className='font-extralight text-[0.88rem]'>Welcome back! Please enter your details below</h3>
@@ -131,8 +135,8 @@ export default function SRFLogin(): JSX.Element {
                                         </Link>
                                 </div>
                             </div>
-                            <button className='border p-[0.96rem] bg-[#003366] text-white rounded-md border-none font-medium'>Sign in</button>
-                            <button className='border p-[0.96rem] border-[#003366] text-[#003366] rounded-md font-medium flex items-center justify-center gap-3'>
+                            <button type="submit" className='border p-[0.96rem] bg-[#003366] text-white rounded-md border-none font-medium'>Sign in</button>
+                            <button type="button" className='border p-[0.96rem] border-[#003366] text-[#003366] rounded-md font-medium flex items-center justify-center gap-3'>
                                 <Image
                                     src={googleLogo}
                                     alt='google' 

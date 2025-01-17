@@ -308,7 +308,7 @@ export default function UploadBook() {
             />
             {previewUrl ? (
               <div className="relative w-full h-full">
-                <img
+                <Image
                   src={previewUrl}
                   alt="Book cover preview"
                   className="object-contain w-full h-full"

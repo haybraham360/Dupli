@@ -166,14 +166,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     try {
-      const data = await makeAuthenticatedRequest(`${API_BASE_URL}/admin/auth/refresh`, {
-        method: 'POST',
-        body: JSON.stringify({ refreshToken }),
-      })
+      // const data = await makeAuthenticatedRequest(`${API_BASE_URL}/admin/auth/refresh`, {
+      //   method: 'POST',
+      //   body: JSON.stringify({ refreshToken }),
+      // })
 
-      setToken(data.token)
-      setCookie('token', data.token)
-      return data.token
+      // setToken(data.token)
+      // setCookie('token', data.token)
+      // return data.token
     } catch (error) {
       console.error('Token refresh failed:', error)
       await logout()
